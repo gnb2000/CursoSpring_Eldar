@@ -6,8 +6,7 @@
 </head>
 <body>
     <h2>Prueba de Thymeleaf</h2>
-    <p th:text="${msg}"></p>
-    <p th:text="${saludo}"></p>
+
 
     <div th:if="${personas != null and !personas.empty}"></div>
          <table>
@@ -17,7 +16,7 @@
 
              <tbody th:each="persona: ${personas}">
                 <tr>
-                    <td th:text="${persona.nombre}"></td>
+                    <td th:text="${persona.apellido}"></td>
                 </tr>
              </tbody>
          </table>

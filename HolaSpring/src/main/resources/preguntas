@@ -1,0 +1,9 @@
+- ¿Thymeleaf se usa para hacer pruebas rapidas en el front, no? Generalmente, se utiliza un framework de frontend y no thymeleaf?
+
+- Por que no puedo hacer sobrecarga de constructores en una entidad cuando utilizo @Data?
+
+- Es una mala practica: spring.jpa.hibernate.ddl-auto=update ??
+
+- Yo estoy acostumbrado a usar la anotacion @Repository e extender Jpa o Crud, Hacer otra interface del servicio e implementar ese servicio usando autowired del repositorio, eso esta mal?
+
+- Como el dialecto de hibernate crea las tablas en la db en orden alfabetico, primero me pone el apellido entonces cuando yo pongo en la vista "persona.apellido" me devuelve el nombre porque en la entidad en el nombre esta primero definido

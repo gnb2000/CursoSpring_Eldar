@@ -1,6 +1,8 @@
 package com.HolaSpring.HolaSpring.controladores;
 
+import com.HolaSpring.HolaSpring.daos.IPersonaDAO;
 import com.HolaSpring.HolaSpring.modelo.Persona;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +14,17 @@ import java.util.List;
 @Controller
 public class ControladorInicioThymeleaf {
 
-    @Value("${index.saludo}")
-    private String saludo;
+   /* @Value("${index.saludo}")
+    private String saludo;*/
+
+    @Autowired
+    private IPersonaDAO iPersonaDAO;
 
     @GetMapping("/test")
     public String inicioThymeleaf(Model model){
         String msg = "Hola mundo prueba";
         model.addAttribute("msg",msg);
-        model.addAttribute("saludo",saludo);
+        //model.addAttribute("saludo",saludo);
 
         //Modelo persona
         List<Persona> personas = new ArrayList<>();
@@ -30,4 +35,13 @@ public class ControladorInicioThymeleaf {
         model.addAttribute("personas",personas);
         return "index";
     }
+
+    @GetMapping("/personas")
+    public String getPersonas(Model model){
+        Iterable<Persona> personas = iPersonaDAO.findAll();
+        model.addAttribute("personas",personas);
+        return "index";
+    }
+
+
 }
