@@ -1,4 +1,4 @@
-package com.HolaSpring.HolaSpring;
+package com.HolaSpring.HolaSpring.controladores;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
