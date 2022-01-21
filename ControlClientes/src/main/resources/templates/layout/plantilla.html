@@ -10,7 +10,13 @@
     </header>
 
     <footer th:fragment="footer">
-        <p>[[#{plantilla.pie-pagina}]] ELDAR</p>
+        <div>
+            <br>
+            <a th:href="@{/(lang=es)}">ES</a> | <a th:href="@{/(lang=en)}">EN</a>
+            <p>[[#{plantilla.pie-pagina}]] ELDAR</p>
+
+        </div>
+
     </footer>
 
 </body>
