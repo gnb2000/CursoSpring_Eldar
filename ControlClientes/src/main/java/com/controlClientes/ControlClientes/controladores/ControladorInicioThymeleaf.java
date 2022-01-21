@@ -4,6 +4,8 @@ import com.controlClientes.ControlClientes.modelo.Persona;
 import com.controlClientes.ControlClientes.repository.PersonaRepository;
 import com.controlClientes.ControlClientes.service.PersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -41,8 +43,9 @@ public class ControladorInicioThymeleaf {
 
 
     @GetMapping("/personas")
-    public String getPersonas(Model model){
+    public String getPersonas(Model model, @AuthenticationPrincipal User user){
         List<Persona> personas = personaService.getAll();
+        System.out.println(user);
         model.addAttribute("personas",personas);
         return "index";
     }

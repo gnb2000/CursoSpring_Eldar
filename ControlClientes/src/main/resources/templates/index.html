@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaft.org">
+<html lang="en" xmlns:th="http://thymeleaft.org" xmlns:sec="http://thymeleaft.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Inicio</title>
@@ -7,7 +7,7 @@
 <body>
     <header th:replace="layout/plantilla :: header"></header>
 
-    <a th:href="@{/agregar}" th:text="#{persona.crear}"></a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}" th:text="#{persona.crear}"></a>
 
     <div th:if="${personas != null and !personas.empty}"></div>
          <table>
@@ -16,8 +16,8 @@
                  <th th:text="#{persona.apellido}"></th>
                  <th th:text="#{persona.email}"></th>
                  <th th:text="#{persona.telefono}"></th>
-                 <th th:text="#{accion.editar}"></th>
-                 <th th:text="#{accion.eliminar}"></th>
+                 <th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{accion.editar}"></th>
+                 <th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{accion.eliminar}"></th>
 
              </tr>
 
