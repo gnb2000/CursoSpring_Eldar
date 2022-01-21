@@ -5,7 +5,7 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h2>Prueba de Thymeleaf</h2>
+    <header th:replace="layout/plantilla :: header"></header>
 
     <a th:href="@{/agregar}">Agregar persona</a>
 
@@ -37,6 +37,8 @@
     <div th:if="${personas == null or personas.empty}">
         No hay personas
     </div>
+
+    <footer th:replace="layout/plantilla :: footer"></footer>
 
 </body>
 </html>
