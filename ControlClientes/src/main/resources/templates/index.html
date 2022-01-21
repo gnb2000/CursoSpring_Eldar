@@ -7,17 +7,17 @@
 <body>
     <header th:replace="layout/plantilla :: header"></header>
 
-    <a th:href="@{/agregar}">Agregar persona</a>
+    <a th:href="@{/agregar}" th:text="#{persona.crear}"></a>
 
     <div th:if="${personas != null and !personas.empty}"></div>
          <table>
              <tr>
-                 <th>Nombre</th>
-                 <th>Apellido</th>
-                 <th>Email</th>
-                 <th>Telefono</th>
-                 <th>Editar</th>
-                 <th>Eliminar</th>
+                 <th th:text="#{persona.nombre}"></th>
+                 <th th:text="#{persona.apellido}"></th>
+                 <th th:text="#{persona.email}"></th>
+                 <th th:text="#{persona.telefono}"></th>
+                 <th th:text="#{accion.editar}"></th>
+                 <th th:text="#{accion.eliminar}"></th>
 
              </tr>
 
@@ -34,8 +34,8 @@
                 </tr>
              </tbody>
          </table>
-    <div th:if="${personas == null or personas.empty}">
-        No hay personas
+    <div th:if="${personas == null or personas.empty}" th:text="#{persona.listavacia}">
+
     </div>
 
     <footer th:replace="layout/plantilla :: footer"></footer>

@@ -6,33 +6,33 @@
 </head>
 <body>
     <header th:replace="layout/plantilla :: header"></header>
-    <h2>Datos de la persona</h2>
-    <a th:href="@{/personas}">Volver al inicio </a>
+    <h2 th:text="#{persona.form.datospersona}"></h2>
+    <a th:href="@{/personas}" th:text="#{accion.regresar}"> </a>
     <form th:action="@{/guardar}" method="post" th:object="${persona}">
         <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
 
-        <label>Nombre</label>
+        <label th:text="#{persona.nombre}"></label>
         <input type="text" name="nombre" th:field="*{nombre}"/>
         <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error nombre</span>
         <br>
 
-        <label>Apellido</label>
+        <label th:text="#{persona.apellido}"></label>
         <input type="text" name="apellido" th:field="*{apellido}"/>
         <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error apellido</span>
 
         <br>
 
-        <label>Email</label>
+        <label th:text="#{persona.email}"></label>
         <input type="text" name="email" th:field="*{email}"/>
         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error email</span>
 
         <br>
 
-        <label>Telefono</label>
+        <label th:text="#{persona.telefono}"></label>
         <input type="text" name="telefono" th:field="*{telefono}"/>
         <br>
 
-        <button type="submit" name="guardar" value="guardar">Guardar</button>
+        <button type="submit" name="guardar" th:value="#{accion.guardar}">Guardar</button>
 
     </form>
 
